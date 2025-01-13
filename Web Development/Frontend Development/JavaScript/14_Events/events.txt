@@ -1,0 +1,77 @@
+Event Bubbling and Capturing in JavaScript------------------------------------------
+In JavaScript, when an event occurs on an element, it doesn’t just trigger on that specific element—it propagates through the DOM tree. This propagation happens in two phases:
+
+Event Capturing (Trickling Phase):-------------------
+
+The event travels from the top of the DOM tree (document) down to the target element.
+This phase is also called the "capturing phase."
+
+Event Bubbling:----------------
+
+The event travels from the target element back up to the top of the DOM tree (document).
+This phase is also called the "bubbling phase."
+
+Event Bubbling Example----------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="outer" style="padding: 20px; border: 1px solid black;">
+    Outer Div
+    <div id="inner" style="padding: 20px; border: 1px solid blue;">
+      Inner Div
+    </div>
+  </div>
+  <script>
+    document.getElementById("outer").addEventListener("click", function () {
+      console.log("Outer DIV clicked");
+    });
+
+    document.getElementById("inner").addEventListener("click", function () {
+      console.log("Inner DIV clicked");
+    });
+  </script>
+</body>
+</html>
+
+Output------------------------------
+
+Inner DIV clicked
+Outer DIV clicked
+
+Event Capturing Example----------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="outer" style="padding: 20px; border: 1px solid black;">
+    Outer Div
+    <div id="inner" style="padding: 20px; border: 1px solid blue;">
+      Inner Div
+    </div>
+  </div>
+  <script>
+    document.getElementById("outer").addEventListener(
+      "click",
+      function () {
+        console.log("Outer DIV clicked (capturing)");
+      },
+      true // Enables capturing phase
+    );
+
+    document.getElementById("inner").addEventListener(
+      "click",
+      function () {
+        console.log("Inner DIV clicked (capturing)");
+      },
+      true // Enables capturing phase
+    );
+  </script>
+</body>
+</html>
+
+Output------------------------------
+
+Outer DIV clicked (capturing)
+Inner DIV clicked (capturing)
+

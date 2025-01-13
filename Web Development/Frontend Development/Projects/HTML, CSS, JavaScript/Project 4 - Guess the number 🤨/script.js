@@ -1,6 +1,6 @@
 const random=parseInt(Math.random()*100+1);
-let previousGuess=[];
-let chances=10;
+const previousGuess=[];
+let chances=9;
 
 const userInput=document.getElementById("guessField");
 const submit=document.getElementById("subt");
@@ -12,6 +12,7 @@ submit.addEventListener("click", ((e)=>{
 
     const input=parseInt(userInput.value);
     check(input)
+    chances--;
 }))
 
 function validation(guess){
@@ -19,20 +20,26 @@ function validation(guess){
         showAnswer.innerHTML="Please enter a number between 1 & 100"
     }
 }
-
 function check(guess){
-    if(guess<random){
-        showAnswer.innerHTML="Number is too low"
-        previousGuess += `${previousGuess}, `
-        chances--;
-        showChances.innerHTML=`${chances}`
+    if(chances>0){
+        if(guess<random){
+            showAnswer.innerHTML="Number is too low"
+            showChances.innerHTML=`${chances}`
+            previousGuess.push(guess)
+            document.querySelector(".guesses").innerHTML=`${previousGuess}`
+            console.log(previousGuess)
+        }
+        else if(guess>random){
+            showAnswer.innerHTML="Number is too high"
+            showChances.innerHTML=`${chances}`
+            previousGuess.push(guess)
+            document.querySelector(".guesses").innerHTML=`${previousGuess}`
+            console.log(previousGuess)
+        } else{
+            showAnswer.innerHTML="You guessed it!"
+        }
     }
-    else if(guess>random){
-        showAnswer.innerHTML="Number is too high"
-        previousGuess += `${previousGuess}, `
-        chances--;
-        showChances.innerHTML=`${chances}`
-    } else{
-        showAnswer.innerHTML="You guessed it!"
+    else{
+        showAnswer.innerHTML="Game Over!"
     }
 }
