@@ -14,6 +14,7 @@ let age = 18
 let isLoggedIn = false
 let state;
 
+// Primitive Types : Number, String, Boolean, Undefined, Null, BigInt, Symbol
 // number => 2 to power 53
 // bigint
 // string => ""
@@ -22,7 +23,7 @@ let state;
 // undefined => not assigned any value
 // symbol => unique
 
-
+// Non-Primitive Types : Arrys, Object
 // object
 
 console.log(typeof undefined); // undefined
