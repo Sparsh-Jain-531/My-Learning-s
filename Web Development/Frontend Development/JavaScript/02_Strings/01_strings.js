@@ -3,7 +3,7 @@ const repoCount = 50
 
 // console.log(name + repoCount + " Value");
 
-// String Interpolation
+// String Interpolation - insert variables directly in template literal.
 console.log(`Hello my name is ${name} and my repo count is ${repoCount}`);
 
 const gameName = new String('sparsh-hc-com')

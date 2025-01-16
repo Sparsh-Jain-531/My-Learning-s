@@ -17,3 +17,10 @@ let data;
 
 console.log(a,name,id,account,data);
 console.table([a,name,id,account,data]);
+
+// Take input from user
+let age=prompt("Enter your age")
+console.log(age, typeof age);
+
+age=Number.parseInt(age);
+console.log(age, typeof age);

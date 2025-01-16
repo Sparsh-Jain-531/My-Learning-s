@@ -1,4 +1,4 @@
-// for of
+// for of - Mainly used for arrays
 
 // ["", "", ""]
 // [{}, {}, {}]
@@ -38,6 +38,7 @@ const greetings = "Hello world!"
 //     console.log(key, ':-', value); 
 // }
 
+// for in loop - mainly used for objects
 
 const myObject = {
     js: 'javascript',
@@ -104,3 +105,14 @@ const myCoding = [
 myCoding.forEach((i)=>{
     console.log(i.languageName, i.languageFileName);
 })
+
+const obj={
+    a:45,
+    b:5,
+    c:245,
+    d:85,
+}
+
+for(let i=0;i<Object.keys(obj).length;i++){
+    console.log("The marks of ",Object.keys(obj)[i]," is ",obj[Object.keys(obj)[i]])
+}
