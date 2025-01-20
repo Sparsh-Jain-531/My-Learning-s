@@ -1,6 +1,13 @@
 // array
 
 const myArr = [0, 1, 2, 3, 4, 5]
+
+const stringMyArr=myArr.toString(); // covert array to string
+console.log(stringMyArr, typeof stringMyArr)
+
+const joinMyArr=myArr.join(" and ") //Joins and covert array to string
+console.log(joinMyArr, typeof joinMyArr)
+
 const myHeors = ["shaktiman", "naagraj"]
 
 const myArr2 = new Array(1, 2, 3, 4)
@@ -50,10 +57,10 @@ console.log(myn2);
 
 // ARRAY METHODs :
 
-// 1.Push = adds value to last of an array.
-// 2. Pop = removes last value of an array.
-// 3. Unshift = adds value at first of an array.
-// 4.Shift = removes first value of an array.
+// 1.Push = adds value to last of an array and return length of the updated array.
+// 2. Pop = removes last value of an array and return that element.
+// 3. Unshift = adds value at first of an array return length of the updated array.
+// 4.Shift = removes first value of an array and return that element..
 // 5. Includes = checks true or false.
 // 6. IndexOf = checks the position of value in number form.
 // 7.Join = converts to string.
