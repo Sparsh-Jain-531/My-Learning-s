@@ -15,6 +15,9 @@ const greetings = "Hello world!"
 //     console.log(i)
 // }
 
+// The difference between map and for-each is that we use for-each when we have make changes to array whereas map returns new array.
+// Map, Filter return a new array while Reduce returns a single value as a result of operations that we defined inside reduce function.
+
 // Maps
 
 // const map = new Map();
