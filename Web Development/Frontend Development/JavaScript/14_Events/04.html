@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>Amazon Shipping Calculator</p>
+      <p>Order under $40 = +$10 Shipping</p>
+      <p>Order over $40 = FREE Shipping</p>
+      <p>
+        <input class="amount" type="text" placeholder="Enter Amount" /><button
+          class="btn"
+        >
+          Calculate
+        </button>
+      </p>
+      <p class="total-cost"></p>
+    </div>
+    <script>
+      const btn = document.querySelector(".btn");
+      const amount = document.querySelector(".amount");
+      const totalCost = document.querySelector(".total-cost");
+
+      function CalculateTotal() {
+        let totalAmount;
+        let cost = Number(amount.value);
+        if (cost <= 40) {
+          totalAmount = cost + 10;
+        } else if (amount.value === "") {
+          totalAmount = "Enter Amount!!";
+        } else {
+          totalAmount = cost;
+        }
+        totalCost.innerHTML = `Your Total Cost is: $${totalAmount.toFixed(2)}`;
+      }
+
+      btn.addEventListener("click", () => {
+        CalculateTotal();
+      });
+
+      amount.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          CalculateTotal();
+        }
+      });
+    </script>
+  </body>
+</html>
