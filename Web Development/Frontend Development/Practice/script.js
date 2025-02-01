@@ -1,42 +1,83 @@
-const btn=document.querySelector(".btn")
-const btn1=document.querySelector(".btn1")
-const inputElement=document.querySelector(".input-element")
-const btn2=document.querySelector(".btn2")
-const text=document.querySelector(".text")
-const text1=document.querySelector(".text1")
-const text2=document.querySelector(".text2")
-const inputKey=document.querySelector(".input-key")
+let cal=document.querySelector(".calculate-button");
+let inp=document.querySelector(".js-cost-input");
+let btn=document.querySelector(".cart");
+console.log(btn.classList.contains("cart"))
 
-function choice(button){
-    text.innerHTML=`You chose: ${button.innerText}`
+// let game=document.querySelector(".gaming");
+// let music=document.querySelector(".music");
+// let tech=document.querySelector(".tech");
+
+// function changeColor(target) {
+//     if(target.classList.contains("black")){
+//         target.classList.remove("black");
+//     } else {
+//         target.classList.add("black");
+//     }
+// }
+
+// game.addEventListener("click",()=>{
+//     changeColor(game)
+// })
+
+// music.addEventListener("click",()=>{
+//     changeColor(music)
+// })
+
+// tech.addEventListener("click",()=>{
+//     changeColor(tech)
+// })
+
+const buttons=document.querySelectorAll(".gaming, .music, .tech");
+
+const changeColor=(target)=>{
+    buttons.forEach((btn)=>{
+        btn.classList.remove("black")
+    })
+    target.classList.add("black")
 }
 
-function printName(){
-    if(inputElement.value!==""){
-        text1.innerHTML=`Your name is ${inputElement.value}`
-    } else {
-        text1.innerHTML="Please enter your name"
+buttons.forEach((btn)=>{
+    btn.addEventListener("click",()=>{
+        changeColor(btn);
+    })
+})
+
+function handleCostKeydown(event) {
+    if (event.key === 'Enter') {
+      calculateTotal();
     }
-}
+  }
 
-btn.addEventListener("click",()=>{
-    choice(btn)
-})
+  function calculateTotal() {
+    const inputElement = document.querySelector('.js-cost-input');
+    let cost = Number(inputElement.value);
 
-btn1.addEventListener("click",()=>{
-    choice(btn1)
-})
-
-btn2.addEventListener("click",()=>{
-    printName()
-})
-
-inputElement.addEventListener("keydown",(e)=>{
-    if(e.key==="Enter"){
-        printName()
+    if(cost < 0) {
+        const input=document.querySelector('.js-total-cost')
+        input.innerHTML = `Error: cost cannot be less than $0`;
+        input.classList.add("red")
+        return;
     }
-})
 
-inputKey.addEventListener("keydown",(e)=>{
-    text2.innerHTML+=e.key
-})
+    if(cost === 0){
+        const input=document.querySelector('.js-total-cost')
+        input.innerHTML = `Error: Please enter some cost`;
+        input.classList.add("red")
+        return;
+    }
+
+    if (cost < 40) {
+      cost = cost + 10;
+    }
+    const input=document.querySelector('.js-total-cost')
+    input.innerHTML = `$${cost}`;
+    input.classList.remove("red")
+  }
+
+  cal.addEventListener("click",()=>{
+    calculateTotal()
+  })
+
+  inp.addEventListener("keydown",(event)=>{
+    handleCostKeydown(event)
+  })
