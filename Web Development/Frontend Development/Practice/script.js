@@ -175,3 +175,84 @@ function runTwice(fun){
 
 runTwice(function(){console.log("12b")})
 runTwice(addarrow)
+
+// const btn=document.querySelector(".btn");
+// const btn1=document.querySelector(".btn1");
+// const btn2=document.querySelector(".btn2");
+// const btn3=document.querySelector(".btn3")
+// const text=document.querySelector(".text");
+
+// btn.addEventListener("click",()=>{
+//   btn.innerHTML="Loading..."
+//   setTimeout(() => {
+//     btn.innerHTML="Finished"
+//   }, 1000);
+// })
+
+// let timeoutId;
+// btn1.addEventListener("click",()=>{
+//   text.innerHTML="Added"
+//   clearTimeout(timeoutId);
+//   timeoutId=setTimeout(() => {
+//     text.innerHTML=""
+//   }, 2000);
+// })
+
+// document.title="App"
+// let number=1;
+
+// btn2.addEventListener("click",()=>{
+//   number+=1
+// })
+// btn3.addEventListener("click",()=>{
+//   if(number>0){
+//     number-=1
+//   }
+// })
+
+// setInterval(() => {
+//   if(document.title=="App" && number>0){
+//     document.title=`(${number}) New Messages`
+//   } else {
+//     document.title="App"
+//   }
+// }, 1000);
+
+const multiply=(a,b)=>( a*b)
+console.log(multiply(6,5))
+
+const countPositive2=(arr)=>{
+  let count=0;
+  arr.forEach((i,index)=>{
+    if(arr[index]>0){
+      count++;
+    }
+  })
+  return count;
+}
+
+console.log(countPositive2([1,-3,8,-7,-8]))
+
+const addNum2=(arr,num)=>{
+  const newArr=arr.map((i)=>{
+    return i+num;
+  })
+  return newArr;
+}
+
+console.log(addNum2([1,2,3,4,5],2))
+
+const removeEgg2=(arr)=>{
+  const newArr=[];
+  let count=0;
+  arr.filter((i,index)=>{
+    if(arr[index]==="egg" && count<2){
+      count++;
+    } else {
+      newArr.push(arr[index]);
+    }
+  })
+  return newArr;
+}
+
+console.log(removeEgg2(["egg","ham","egg","gem","egg"]))
