@@ -41,7 +41,7 @@ app.use(express.static('public')) // this is a middleware which will serve all t
 app.get("/", (req, res) => {
 
     // res.send("Hello, server");
-    res.render("index"); // nedd app.set for setting ejs as view engine 
+    res.render("index",{name:"sparsh!"}); // nedd app.set for setting ejs as view engine 
     // res.render("index.ejs"); // does not nedd app.set for setting ejs as view engine instead provide file name with extension
 })
 
