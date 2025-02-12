@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 
+// schema creation
 const userSchema=new mongoose.Schema({
     name:String,
     email:String,
-    password:String
+    password:String,
 })
 
-const User=mongoose.model("User",userSchema)
+const User=mongoose.model("User",userSchema);
 
 export default User;
