@@ -104,6 +104,21 @@ app.get("/contact", (req, res) => {
     res.send("Contact");
 })
 
+
+
+app.get("/error",(req,res,next)=>{
+    next(new Error("Something went wrong"))
+})
+
+// default error handler
+app.use((err, req, res, next) => {
+    console.error(err.message)
+    res.status(500).send('Something error!')
+})
+
 app.listen(4000,()=>{
     console.log("Server is running on port 4000");
 })
+
+
+// dev dependencies are one's which we only use in development not in production.

@@ -17,6 +17,8 @@ const JsUser = {
     lastLoginDays: ["Monday", "Saturday"]
 }
 
+// Object.freeze(JsUser)  // to stop making changes in object
+
 // console.log(JsUser.email)
 // console.log(JsUser["email"])
 // console.log(JsUser["full name"])
