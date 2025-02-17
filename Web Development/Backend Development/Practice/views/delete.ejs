@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Delete</title>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900 text-white">
+      <h1>Are you sure you want to delete file?</h1>
+      <form action="/delete" method="post">
+        <input
+          class="mt-2 bg-red-600 px-5 py-2 rounded-md"
+          type="submit"
+          value="<%= filename %>"
+          name="filename"
+        />
+      </form>
+    </div>
+  </body>
+</html>
