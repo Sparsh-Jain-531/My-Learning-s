@@ -259,3 +259,4 @@ console.log(removeEgg2(["egg","ham","egg","gem","egg"]))
 
 console.log("End")
 console.log("Laptop test");
+console.log("laptop")
