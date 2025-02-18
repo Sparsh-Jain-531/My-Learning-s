@@ -258,3 +258,4 @@ const removeEgg2=(arr)=>{
 console.log(removeEgg2(["egg","ham","egg","gem","egg"]))
 
 console.log("End")
+console.log("Laptop test");
