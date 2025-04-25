@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "title": "Post1",
+      "body": "Some random postrs",
+      "userId": 23,
+      "id": 1
+    },
+    {
+      "title": "Post2",
+      "body": "Some 2323 random 32 p ostrs",
+      "userId": 23,
+      "id": 2
+    }
+  ]
+}

@@ -29,6 +29,7 @@ const Form_Handling_02 = () => {
         className='border-2 border-black m-2'
          />
         <button className='bg-green-500 text-white px-2 py-1 rounded-md'type="submit">Submit</button>
+        <div>{username}</div>
       </form>
     </>
   )
