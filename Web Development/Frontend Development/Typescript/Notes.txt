@@ -1,0 +1,135 @@
+typescript is a advanced version of javascript as it provides mainly more control on type of variables and some more features.
+
+commands to run
+  --> tsc fileName.ts  -> to run ts file.
+  --> tsc --init -> to make tsc config file
+  --> tsc --watch -> to automatically compile ts file on every changes.
+
+primitives and refrence
+
+primitives - 1,25,789
+refrence - [], {}, ()
+
+if we make a array and other variable is also refrencing to same array then any change made by any variable will change the value inside array and it changes for all
+
+// Basic types
+
+   --Primitives types (number, string, boolean|)
+   --Arrays
+   --Tuples
+   --Enums
+   --Any, Unknown, Void, Null, Undefined, Never
+
+arrays - const arr = [1,2,"sparsh"]
+         const arr : number[] = [1,2,3]
+
+tuples - we define size and type of elements at all index of arrays
+         const arr2 : [number, string] = [12,"sparsh"]
+
+Enum - We define our own prperties.
+       enum UserRoles{
+           ADMIN = "admin",
+           SUPER_ADMIN = "super_admin",
+           USER = "user"
+        }
+
+function fun(a: number): number {
+  return a;
+}
+A function that takes a number as a parameter and also the return type of that function is a number.
+
+let value: string | number;
+value="sparsh";
+value=12;
+
+Type Inference - when typescript automatically try to find the data type of variable.
+
+const a=12;  //number
+
+Type annotations - When you define the type of variable as we doing in above part.
+
+const a : number = 12;
+
+function abcd(a: number, b: number) : number{
+   return a+b;
+}
+
+Interface - basically used to define shape of objects. it tell what type of values with their data-type will be in object.
+
+interface User {
+    name: string,
+    email: string,
+    password: string,
+    gender?: string  // optional
+}
+
+const obj2 : User = {
+    name: "string",
+    email: "string",
+    password: "string"
+}
+
+function objj(obj: User) : User {
+    return obj;
+}
+
+console.log(objj({name: "sparsh", email:"sparsh@gmail.com", password: "12345"}))
+
+Extending Interfaces - We can extend(copy) a interface so that we can use properties of that interface and also add new properties.
+
+interface User {
+    name: string,
+    email: string,
+    password: string,
+    gender?: string  // optional
+}
+
+interface Admin extends User{
+    admin: string
+}
+
+function objj(obj: Admin) : Admin {
+    return obj;
+}
+
+console.log(objj({name: "sparsh", email:"sparsh@gmail.com", password: "12345", admin: "admin"}))
+
+If we define two interface with same name then when we declare that interface to any variable then it shows all peoperties which present in both.(basically they merge properties when they have same name)
+
+interface abcd {
+  name: string;
+}
+
+interface abcd {
+  email: string;
+}
+
+function call(obj: abcd): abcd {
+  return obj;
+}
+
+Type Aliases - basically we can define our own datatype with a name.
+
+type value = string | number | boolean;   //union also
+let a :value;
+
+intersection types - 
+
+type User = {
+    name: string,
+    email: string
+}
+
+type Admin = User & {
+    password: string,
+    getDetails(user: string): void
+}
+
+function abcd(a: Admin) : Admin {
+    return a;
+}
+
+The main difference between type and interface is that -
+1. We cannot define two type with same name as they do not merge like interface.
+2. interface is basically used to define the shape of object while type is used to defined our own data-type.
+
