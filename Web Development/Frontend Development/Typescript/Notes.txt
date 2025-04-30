@@ -133,3 +133,118 @@ The main difference between type and interface is that -
 1. We cannot define two type with same name as they do not merge like interface.
 2. interface is basically used to define the shape of object while type is used to defined our own data-type.
 
+class and object
+
+class Human{
+    constructor(public name: string, public age: number){
+        this.name=name;
+        this.age=age
+    }
+}
+
+let h1=new Human("sparsh", 22)
+console.log(h1)
+
+
+redonly - used to not allow to change the value.
+
+class Human{
+    constructor(public readonly name: string, public age: number){
+        this.name=name;
+        this.age=age
+    }
+
+    changeName(){
+        this.name="sanjay"
+    }
+}
+
+let h1=new Human("sparsh", 22)
+console.log(h1)
+h1.changeName()
+console.log(h1);
+
+public - can access from anywhere.
+private - only access in that class.
+protected - only access in that class and it's sub-class.
+
+Getters & Setters
+
+class Human{
+    constructor (public _name: string, public age: number) {}
+
+    get name(){
+        return this._name
+    }
+
+    set name(value: string){
+        this._name=value
+    }
+}
+
+let h1=new Human("sparsh",22)
+console.log(h1)
+console.log(h1.name);
+h1.name="sanjay";
+console.log(h1)
+
+Functions
+
+function abcd(name: string, cb: (value: string) => void, age?: number){
+    cb("sparsh")
+}
+
+abcd("sparsh", (value: string)=>{
+    console.log(value)
+},22)
+
+abcd("sparsh", (value: string)=>{
+    console.log(value)
+})
+
+function abcd(name: string, cb: (value: string) => void, age: number = 0){
+    cb("sparsh")
+    console.log(age)
+}
+
+abcd("sparsh", (value: string)=>{
+    console.log(value)
+},22)
+
+abcd("sparsh", (value: string)=>{
+    console.log(value)
+})
+
+
+...rest - when we use ... in parameters
+
+function sum(...arr: number[]){
+    console.log(arr)
+}
+sum(1,2,3,4,5,6,7,8,9,10)
+
+
+...spread - when perform some operation on value
+
+const val1 = [1,2,3,4,5]
+const val2 = [...val1]
+console.log(val2)
+
+Function Overloading
+
+function abcd(a: string): void;
+function abcd(a: string, b: number): number;
+
+function abcd(a: any, b?: any){
+    if(typeof a==="string" && b === undefined){
+        console.log("hey")
+    }
+    if(typeof a==="string" && typeof b==="number"){
+        return 123;
+    }
+    else throw new Error("something went wrong!")
+}
+
+abcd("hey")
+abcd("hey",12)
+
