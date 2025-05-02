@@ -248,3 +248,73 @@ function abcd(a: any, b?: any){
 abcd("hey")
 abcd("hey",12)
 
+Generics : Used to create reusable and type-safe functions or classes.
+
+Generics Functions
+
+function identity<T>(value: T): T {
+  console.log(value, typeof value);
+  return value as T; // Type assertion to satisfy TypeScript's type checker
+}
+
+const output1 = identity<string>("Hello");
+const output2 = identity<number>(123);
+
+Generics Interfaces
+
+interface person<T> {
+  name: string;
+  age: number;
+  married: T;
+}
+
+const sparsh: person<boolean> = {
+  name: "Sparsh",
+  age: 20,
+  married: false,
+};
+
+function abcd(obj: person<boolean>) {
+  return obj;
+}
+
+abcd({ name: "sparsh", age: 22, married: false });
+
+Generics classes
+
+class bottleMaker<T> {
+  constructor(public data: T) {}
+}
+
+let b1 = new bottleMaker<string>("sparsh");
+let b2 = new bottleMaker<number>(123);
+console.log(b1, b2);
+
+Type Assertion
+
+let a: any;
+(<number>a);
+(<string>a);
+
+Type Casting
+
+let a =Number("121");
+console.log(a, typeof a)
+
+let b =String(147);
+console.log(b, typeof b)
+
+Type Guards  ->  Type Narrowing
+
+function abcd(arg: string | number | any) {
+  if (typeof arg === "number") {
+    return "number";
+  } else if (typeof arg === "string") {
+    return "string";
+  } else {
+    throw new Error("pagal how gaya hai kya fraaaaaands");
+  }
+}
+console.log(abcd(12));
+console.log(abcd("hello"));
+abcd(true);

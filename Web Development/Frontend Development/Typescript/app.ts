@@ -1,15 +1,12 @@
-function abcd(a: string): void;
-function abcd(a: string, b: number): number;
-
-function abcd(a: any, b?: any){
-    if(typeof a==="string" && b === undefined){
-        console.log("hey")
-    }
-    if(typeof a==="string" && typeof b==="number"){
-        return 123;
-    }
-    else throw new Error("something went wrong!")
+function abcd(arg: string | number | any) {
+  if (typeof arg === "number") {
+    return "number";
+  } else if (typeof arg === "string") {
+    return "string";
+  } else {
+    throw new Error("pagal how gaya hai kya fraaaaaands");
+  }
 }
-
-abcd("hey")
-abcd("hey",12)
+console.log(abcd(12));
+console.log(abcd("hello"));
+abcd(true);

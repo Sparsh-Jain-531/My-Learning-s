@@ -1,13 +1,15 @@
 "use strict";
-function abcd(a, b) {
-    if (typeof a === "string" && b === undefined) {
-        console.log("hey");
+function abcd(arg) {
+    if (typeof arg === "number") {
+        return "number";
     }
-    if (typeof a === "string" && typeof b === "number") {
-        return 123;
+    else if (typeof arg === "string") {
+        return "string";
     }
-    else
-        throw new Error("something went wrong!");
+    else {
+        throw new Error("pagal how gaya hai kya fraaaaaands");
+    }
 }
-abcd("hey");
-abcd("hey", 12);
+console.log(abcd(12));
+console.log(abcd("hello"));
+abcd(true);
